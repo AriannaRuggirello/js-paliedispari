@@ -31,7 +31,7 @@
   
 
 // Pari e Dispari
-
+console.log('pari o dispari');
 // L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
 
 let userChoice = prompt('scegli se il risultato sarà pari o dispari')
@@ -43,25 +43,31 @@ console.log("il numero dell'utente è " + userNumber);
 
 // Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
 
-let computerNumber = generateComputerNumber()
+let computerNumber = generateComputerNumber(1,5)
 console.log('il numero scelto dal pc è ' + computerNumber);
 
-function generateComputerNumber() {
-    let num = Math.floor(Math.random() * 5) + 1;
+function generateComputerNumber(min,max) {
+    let num = Math.floor(Math.random() * (max - min)) + min;
 
     return (num);
 }
 
-// Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) 
+// Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) // Dichiariamo chi ha vinto.
 
-let somma = userNumber + computerNumber;
+let somma = parseInt(userNumber + computerNumber);
 console.log('la somma dei numeri è ' + somma);
 
-if(somma % 2 === 0){
-console.log('il numero è pari');
+let solution = '';
+
+if(somma % 2 === 0 && userChoice === 'pari' || somma % 2 !== 0 && userChoice === 'dispari'){
+    solution = 'hai vinto!';
 }
-else{
-    console.log('la somma dei numeri è dispari');
+else {
+    solution = 'ritenta sarai più fortunato';
 }
 
-// Dichiariamo chi ha vinto.
+console.log(solution);
+
+
+
+
