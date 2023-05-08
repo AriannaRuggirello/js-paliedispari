@@ -54,20 +54,25 @@ function generateComputerNumber(min,max) {
 
 // Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) // Dichiariamo chi ha vinto.
 
-let somma = parseInt(userNumber + computerNumber);
-console.log('la somma dei numeri è ' + somma);
-
-let solution = '';
-
-if(somma % 2 === 0 && userChoice === 'pari' || somma % 2 !== 0 && userChoice === 'dispari'){
-    solution = 'hai vinto!';
-}
-else {
-    solution = 'ritenta sarai più fortunato';
-}
-
+let solution = evenOdd(userNumber,computerNumber, userChoice);
 console.log(solution);
 
 
 
+function evenOdd(userNumber,computerNumber, userChoice) 
+{
+    let somma = parseInt(userNumber + computerNumber);
+    console.log(somma);
+
+    let risultato ='';
+
+    if(somma % 2 === 0 && userChoice === 'pari' || somma % 2 !== 0 && userChoice === 'dispari'){
+        risultato = 'hai vinto!';
+    }
+    else {
+        risultato = 'ritenta sarai più fortunato';
+    }
+     return risultato;
+    
+}
 
